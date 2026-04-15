@@ -10,6 +10,7 @@
     
     <canvas id="chessBoard" width="480" height="480"></canvas>
     <script src="chess.js"></script>
+    <button onclick="loadImages()">Börja om</button>
 
 </body>
 </html>
