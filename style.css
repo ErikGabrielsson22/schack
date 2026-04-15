@@ -1,0 +1,5 @@
+#chessBoard {
+    border: 5px solid #000000;
+    display: block;
+    margin: 20px auto;
+}
