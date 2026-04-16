@@ -43,6 +43,11 @@ function draw() {
       }
     }
   }
+  if (selected) {
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "red";
+    ctx.strokeRect(selected.column * square, selected.row * square, square, square);
+}
 }
 
 // laddar bilder efter allt har laddats
@@ -60,4 +65,17 @@ function loadImages() {
         images[name].src = imageSources[name];
     });
 }
+
+let selected = null; 
+
+canvas.onclick = (event) => {
+  const column = Math.floor(event.offsetX / square);
+  const row = Math.floor(event.offsetY / square);
+
+  if (board[row][column]) {
+      selected = { row, column };
+  }
+  draw();
+};
+
 loadImages();
