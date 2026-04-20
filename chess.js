@@ -47,7 +47,7 @@ function draw() {
     ctx.lineWidth = 4;
     ctx.strokeStyle = "red";
     ctx.strokeRect(selected.column * square, selected.row * square, square, square);
-}
+  }
 }
 
 // laddar bilder efter allt har laddats
@@ -66,16 +66,20 @@ function loadImages() {
     });
 }
 
-let selected = null; 
+let selected = null;
 
 canvas.onclick = (event) => {
   const column = Math.floor(event.offsetX / square);
   const row = Math.floor(event.offsetY / square);
-
-  if (board[row][column]) {
-      selected = { row, column };
+  if (selected) {
+    const piece = board[selected.row][selected.column];
+    board[row][column] = piece;
+    board[selected.row][selected.column] = ''; 
+    selected = null;
+  } 
+  else if (board[row][column]) {
+    selected = { row, column };
   }
   draw();
 };
-
 loadImages();
