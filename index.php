@@ -9,8 +9,13 @@
 <body>
     
     <canvas id="chessBoard" width="480" height="480"></canvas>
-    <script src="chess.js"></script>
-    <button onclick="loadImages()">Börja om</button>
+    <script type="module" src="chess.js"></script>
+    <button onclick="reset()">Börja om</button>
+
+    <script>
+        function reset() {
+            location.reload();}
+    </script>
 
 </body>
 </html>
